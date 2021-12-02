@@ -1,3 +1,3 @@
 # ToggleSwitch
-A simplified version of button switch, only in XAML  
-![A simplified version of button switch, only in XAML](switch.gif)  
+A simplified version of the switch button, only in XAML.  
+![A simplified version of switch button, only in XAML](switch.gif)  
