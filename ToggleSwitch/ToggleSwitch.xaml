@@ -20,7 +20,6 @@
     <!--  ACTIVE BACKGROUND COLOR (ON)  -->
     <SolidColorBrush x:Key="ActiveBackgroundColor" Color="{Binding Color, Source={x:Static SystemColors.ActiveCaptionBrush}}" />
 
-
     <!--
         SWITCH BUTTON ON/OFF
         ToggleButton.BackGround  : BackGround color
