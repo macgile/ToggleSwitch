@@ -1,0 +1,104 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Geometry x:Key="On">
+        M 11.7 6.1 H 10.7 C 10.7 4.9 10.7 3.5 10.7 2.3 C 10.7 1.9 10.6 1.4 10.2 1.1 C 9.7 0.8 9 1 8.4 1.3 C 8.2 1.4 8 1.5 7.8 1.7 V 6.1 H 6.8 V 0.2
+        H 7.8 V 0.8 C 8.4 0.3 9.3 -0.1 10.1 0 C 10.7 0.1 11.3 0.5 11.5 1.1 C 11.8 1.8 11.7 2.6 11.7 3.3 C 11.7 4.2 11.7 5.2 11.7 6.1 Z M 4.3 5.6
+        C 3.5 6.2 2.5 6.3 1.6 5.9 C -0.1 5 -0.3 2.8 0.4 1.4 C 1.3 -0.2 3.4 -0.5 4.6 0.9 C 5.7 2.2 5.5 4.6 4.3 5.6 Z M 3.6 1.2 C 3 0.7 2.1 0.8 1.5 1.3
+        C 0.8 2.4 0.8 4.4 1.8 5.1 C 2.5 5.5 3.5 5.3 4 4.6 C 4.5 3.6 4.5 1.8 3.6 1.2 Z
+    </Geometry>
+
+    <Geometry x:Key="Off">
+        M 12.1668 1.8373 C 11.5827 1.7156 10.8194 1.5267 10.3584 2.0371 C 10.1737 2.3242 10.0987 2.8168 10.1854 3.1014 H 11.8225 V 3.8786 H 10.1846
+        V 7.7114 H 9.2599 V 3.8786 H 8.6352 V 3.1014 H 9.2599 C 9.208 2.3167 9.4624 1.3844 10.2557 1.0595 C 10.8605 0.8073 11.5384 0.8842 12.1668 0.9913 Z
+        M 8.6254 1.8373 C 8.0412 1.7156 7.278 1.5267 6.817 2.0371 C 6.6323 2.3242 6.5573 2.8168 6.644 3.1014 H 8.2811 V 3.8786 H 6.6432 V 7.7114 H 5.7184
+        V 3.8786 H 5.0938 V 3.1014 H 5.7184 C 5.6665 2.3167 5.921 1.3844 6.7143 1.0595 C 7.3191 0.8073 7.9969 0.8842 8.6254 0.9913 Z M 5.1029 4.9667
+        C 5.135 6.0014 4.705 7.1485 3.7223 7.6179 C 2.6516 8.1194 1.1767 7.8752 0.5185 6.83 C -0.0524 5.9305 -0.08 4.7676 0.2027 3.7653
+        C 0.474 2.82 1.3638 2.094 2.3554 2.0716 C 3.2664 1.9789 4.2282 2.3993 4.6826 3.2139 C 4.997 3.7391 5.1033 4.3619 5.1029 4.9667 Z
+        M 4.1487 4.9667 C 4.1672 4.203 3.9566 3.2586 3.1576 2.9614 C 2.4238 2.6772 1.4554 2.9756 1.1813 3.7595 C 0.9115 4.549 0.9025 5.4598 1.2212 6.2367
+        C 1.6384 7.2711 3.2778 7.3595 3.8249 6.3999 C 4.0859 5.9732 4.1464 5.4575 4.1487 4.9667 Z
+    </Geometry>
+
+    <!--  ACTIVE BACKGROUND COLOR (ON)  -->
+    <SolidColorBrush x:Key="ActiveBackgroundColor" Color="{Binding Color, Source={x:Static SystemColors.ActiveCaptionBrush}}" />
+
+
+    <!--
+        SWITCH BUTTON ON/OFF
+        ToggleButton.BackGround  : BackGround color
+        ToggleButton.Foreground  : Icon color
+        ToggleButton.BorderBrush : Pill color
+    -->
+    <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="ToggleButton">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Viewbox Width="{TemplateBinding Width}">
+                        <Grid Width="96">
+                            <Grid
+                                Width="96"
+                                VerticalAlignment="Center"
+                                ShowGridLines="False">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                <Path
+                                    Grid.Column="0"
+                                    Height="18"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Panel.ZIndex="2"
+                                    Data="{StaticResource On}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Stretch="Uniform"
+                                    Stroke="{TemplateBinding Foreground}"
+                                    StrokeThickness="1" />
+                                <Rectangle
+                                    x:Name="BackGround"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Width="96"
+                                    Height="52"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Panel.ZIndex="0"
+                                    Fill="{TemplateBinding Background}"
+                                    RadiusX="26"
+                                    RadiusY="26" />
+                                <Path
+                                    Grid.Column="1"
+                                    Height="21"
+                                    Margin="0,0,2,3"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Panel.ZIndex="2"
+                                    Data="{StaticResource Off}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Stretch="Uniform"
+                                    Stroke="{TemplateBinding Foreground}"
+                                    StrokeThickness="1" />
+                            </Grid>
+                            <Ellipse
+                                x:Name="Pill"
+                                Width="50"
+                                Height="50"
+                                Margin="1,0,1,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Panel.ZIndex="1"
+                                Fill="{TemplateBinding BorderBrush}"
+                                Visibility="Visible" />
+                        </Grid>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Pill" Property="HorizontalAlignment" Value="Right" />
+                            <Setter TargetName="BackGround" Property="Fill" Value="{StaticResource ActiveBackgroundColor}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
